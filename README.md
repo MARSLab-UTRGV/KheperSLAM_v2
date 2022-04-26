@@ -1,3 +1,7 @@
+# Compiles with modern argos3
+code from https://github.com/cbsudux/KheperaIV-SLAM, with minor changes to compile with the current argos3
+below is the original read me
+
 # KheperaIV-SLAM
 Code I wrote to implement [BreezySLAM](https://github.com/simondlevy/BreezySLAM) on the [KheperaIV](https://www.k-team.com/khepera-iv) robots in [ARGoS](http://www.argos-sim.info/).(A multi-physics robot simulator)
 
