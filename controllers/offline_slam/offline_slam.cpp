@@ -117,8 +117,8 @@ void CKheperaIVManualControl::ControlStep() {
              m_cSLAMData << 0 << " " ;
           }
 
-
-/*          for(size_t j = 0; j < tLidarReads.size(); ++j ){
+/*
+          for(size_t j = 0; j < tLidarReads.size(); ++j ){
              m_cSLAMData << (UInt32)(tLidarReads[j]*10) << " " ;
           }*/
           m_cSLAMData << "\n";

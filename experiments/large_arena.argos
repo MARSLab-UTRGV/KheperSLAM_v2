@@ -41,25 +41,68 @@
   <!-- *********************** -->
   <!-- * Arena configuration * -->
   <!-- *********************** -->
-    <arena size="8, 10, 1" center="2,0,0.5">
-
-    <box id="wall_north" size="8,0.1,0.5" movable="false">
-      <body position="2,5,0" orientation="0,0,0" />
+    <arena size="16, 20, 1" center="2,0,0.5">
+    <box id="wall_north" size="16,0.1,0.5" movable="false">
+      <body position="2,10,0" orientation="0,0,0" />
     </box>
-    <box id="wall_south" size="8,0.1,0.5" movable="false">
-      <body position="2,-5,0" orientation="0,0,0" />
+    <box id="wall_south" size="16,0.1,0.5" movable="false">
+      <body position="2,-10,0" orientation="0,0,0" />
     </box>
-    <box id="wall_east" size="0.1,10,0.5" movable="false">
-      <body position="6,0,0" orientation="0,0,0" />
+    <box id="wall_east" size="0.1,20,0.5" movable="false">
+      <body position="10,0,0" orientation="0,0,0" />
     </box>
-    <box id="wall_west" size="0.1,10,0.5" movable="false">
+    <box id="wall_west" size="0.1,20,0.5" movable="false">
       <body position="-6,0,0" orientation="0,0,0" />
     </box>
 
-    <box id="ob0" size="3,0.1,0.5" movable="false">
-      <body position="-0.5,-2.5,0" orientation="0,0,0" />
+    <box id="hallbr1" size="5,0.1,0.5" movable="false">
+      <body position="-3.5,-2.5,0" orientation="0,0,0" />
     </box>
 
+    <box id="hallbr2" size="5,0.1,0.5" movable="false">
+      <body position="-1.5,-4,0" orientation="0,0,0" />
+    </box>
+
+    <box id="hallbr3" size="0.1,3,0.5" movable="false">
+      <body position="-4,-5.6,0" orientation="0,0,0" />
+    </box>
+
+    <box id="hallbr4" size="0.1,6,0.5" movable="false">
+      <body position="1,-7,0" orientation="0,0,0" />
+    </box>
+
+    <box id="objtr" size="2,2,0.5" movable="false">
+      <body position="6,-5,0" orientation="0,0,0" />
+    </box>
+
+    <box id="objtr2" size="1,1,0.5" movable="false">
+      <body position="4.5,-5,0" orientation="0,0,0" />
+    </box>
+
+    <box id="halltl1" size="8,0.1,0.5" movable="false">
+      <body position="6,2.5,0" orientation="0,0,0" />
+    </box>
+
+    <box id="objbl1" size="1,1,0.5" movable="false">
+      <body position="-3.5,4.5,0" orientation="0,0,0" />
+    </box>
+
+    <box id="objbl2" size="1,1,0.5" movable="false">
+      <body position="-2.5,3.5,0" orientation="0,0,0" />
+    </box>
+
+    <box id="objbl3" size="1,1,0.5" movable="false">
+      <body position="-1.5,6.5,0" orientation="0,0,0" />
+    </box>
+
+    <box id="halltl2" size="5,0.1,0.5" movable="false">
+      <body position="4.5,4.5,0" orientation="0,0,0" />
+    </box>
+
+    <box id="halltl3" size="0.1,5.5,0.5" movable="false">
+      <body position="7,7.25,0" orientation="0,0,0" />
+    </box>
+<!--
     <box id="ob1" size="0.1,3,0.5" movable="false">
       <body position="3,3.5,0" orientation="0,0,0" />
     </box>
@@ -69,10 +112,10 @@
       <body position="-2,0,0" orientation="0,0,0" />
     </box>
 
-
-    <box id="ob3" size="0.1,4,0.5" movable="false">
+    <box id="ob3" size="0.1,10,0.5" movable="false">
       <body position="0.5,3,0" orientation="0,0,0" />
     </box>
+-->
     <!--
         You can distribute entities randomly. Here, we distribute
         10 foot-bots in this way:
@@ -83,10 +126,19 @@
         standard deviation is 360 degrees.
     -->
     <distribute>
-      <position method="constant" values="0,0,0" />
+      <position method="constant" values="-3,-3,0" />
       <orientation method="constant" values="0,0,0" />
       <entity quantity="1" max_trials="100">
-          <kheperaiv id="khiv">
+          <kheperaiv id="khiv1">
+          <controller config="khivmc" />
+        </kheperaiv>
+      </entity>
+    </distribute>
+    <distribute>
+      <position method="constant" values="9,8,0" />
+      <orientation method="constant" values="0,0,0" />
+      <entity quantity="1" max_trials="100">
+          <kheperaiv id="khiv2">
           <controller config="khivmc" />
         </kheperaiv>
       </entity>
@@ -135,13 +187,13 @@
     <qt-opengl>
       <user_functions library="build/loop_functions/manualcontrol_loop_functions/libmanualcontrol_loop_functions"
                       label="manualcontrol_qtuser_functions" />
-<!--
+
       <camera>
         <placements>
-          <placement index="0" position="0,0,8" look_at="0,0,0" up="1,0,0" lens_focal_length="65" />
+          <placement index="0" position="0,0,8" look_at="0,0,0" up="1,0,0" lens_focal_length="10" />
         </placements>
       </camera>
--->
+
     </qt-opengl>
   </visualization>
 
