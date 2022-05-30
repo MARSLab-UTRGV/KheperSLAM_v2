@@ -103,4 +103,4 @@ void CKheperDiffusion::ControlStep() {
  * controller class to instantiate.
  * See also the configuration files for an example of how this is used.
  */
-REGISTER_CONTROLLER(CKheperDiffusion, "kheperaiv_diffusion_controller")
+REGISTER_CONTROLLER(CKheperDiffusion, "kheper_diffusion_controller")
