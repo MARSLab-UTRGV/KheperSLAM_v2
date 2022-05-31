@@ -15,8 +15,9 @@
   <!-- * Controllers * -->
   <!-- *************** -->
   <controllers>
-    <kheper_diffusion_controller id="kdc"
-                                  library="build/controllers/kheper_diffusion/libkheper_diffusion.so">
+
+    <kheper_diffusion_lidar_controller id="kdc"
+                                  library="build/controllers/kheper_diffusion_lidar/libkheper_diffusion_lidar.so">
       <!--
           The <actuators> section contains a list of the actuators used by
           this controller.
@@ -52,6 +53,7 @@
       <sensors>
         <kheperaiv_proximity implementation="default" show_rays="true" />
         <kheperaiv_lidar      implementation="default" show_rays="true" />
+        <differential_steering implementation="default" />
       </sensors>
       <!--
           The <params> section is passed as-is to the controller's Init()
@@ -62,28 +64,8 @@
           controllers/footbot_diffusion/footbot_diffusion.h.
       -->
       <params alpha="7.5" delta="0.1" velocity="5" />
-    </kheper_diffusion_controller>
-<!--
-    <kheperaiv_manual_controller id="khivmc"
-                               library="build/controllers/offline_slam/liboffline_slam.so">
-      <actuators>
-        <differential_steering implementation="default" />
-        <leds implementation="default" medium="leds" />
-      </actuators>
-      <sensors>
-        <kheperaiv_ultrasound implementation="default" show_rays="false" />
-        <kheperaiv_lidar implementation="default" num_readings="682" show_rays="true" />
-        <differential_steering implementation="default" />
-      </sensors>
-      <params>
-        <wheel_turning hard_turn_angle_threshold="90"
-                       soft_turn_angle_threshold="70"
-                       no_turn_angle_threshold="10"
-                       max_speed="10" />
-      </params>
+    </kheper_diffusion_lidar_controller>
 
-    </kheperaiv_manual_controller>
--->
   </controllers>
 
   <!-- *********************** -->
@@ -182,15 +164,7 @@
         </kheperaiv>
       </entity>
     </distribute>
-    <distribute>
-      <position method="constant" values="9,8,0" />
-      <orientation method="constant" values="0,0,0" />
-      <entity quantity="1" max_trials="100">
-          <kheperaiv id="khiv2">
-          <controller config="kdc" />
-        </kheperaiv>
-      </entity>
-    </distribute>
+
 
     <!-- <distribute>
       <position method="uniform" min="0,-1 ,0" max="0,0,0" />
@@ -233,6 +207,7 @@
   <!-- ****************** -->
   <visualization>
     <qt-opengl>
+
       <camera>
         <placements>
           <placement index="0" position="0,0,8" look_at="0,0,0" up="1,0,0" lens_focal_length="10" />

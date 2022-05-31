@@ -1,0 +1,6 @@
+add_library(kheper_diffusion_lidar MODULE kheper_diffusion_lidar.h kheper_diffusion_lidar.cpp)
+target_link_libraries(kheper_diffusion_lidar
+  argos3core_simulator
+  argos3plugin_simulator_footbot
+  argos3plugin_simulator_kheperaiv
+  argos3plugin_simulator_genericrobot)
