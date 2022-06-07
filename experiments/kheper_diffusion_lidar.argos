@@ -137,7 +137,7 @@
 
     <!-- Place a kheperaiv in the origin and bind it to the controller -->
     <kheperaiv id="khiv_0">
-      <body position="0,0,0" orientation="0,0,0" />
+      <body position="-0.5,-.75,0" orientation="-1,1,0" />
       <controller config="kdc"/>
     </kheperaiv>
 

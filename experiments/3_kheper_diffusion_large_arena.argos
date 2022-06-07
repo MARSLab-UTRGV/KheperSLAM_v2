@@ -15,8 +15,8 @@
   <!-- * Controllers * -->
   <!-- *************** -->
   <controllers>
-    <kheper_diffusion_controller id="kdc"
-                                  library="build/controllers/kheper_diffusion/libkheper_diffusion.so">
+    <kheper_diffusion_lidar_controller id="kdc"
+                                  library="build/controllers/kheper_diffusion_lidar/libkheper_diffusion_lidar.so">
       <!--
           The <actuators> section contains a list of the actuators used by
           this controller.
@@ -52,6 +52,7 @@
       <sensors>
         <kheperaiv_proximity implementation="default" show_rays="true" />
         <kheperaiv_lidar      implementation="default" show_rays="true" />
+        <differential_steering implementation="default" />
       </sensors>
       <!--
           The <params> section is passed as-is to the controller's Init()
@@ -62,7 +63,105 @@
           controllers/footbot_diffusion/footbot_diffusion.h.
       -->
       <params alpha="7.5" delta="0.1" velocity="5" />
-    </kheper_diffusion_controller>
+    </kheper_diffusion_lidar_controller>
+    <kheper_diffusion_lidar_controller_2 id="kdc2"
+                                  library="build/controllers/kheper_diffusion_lidar_2/libkheper_diffusion_lidar_2.so">
+      <!--
+          The <actuators> section contains a list of the actuators used by
+          this controller.
+          If you forget a to mention an actuator here and then request it
+          in the controller, an error occurs.
+          For a list of the possible actuators, type at the command prompt:
+          $ launch_argos -q actuators
+
+          Multiple implementations of an actuator are possible. To
+          identify which one you want to use, pass it in the
+          'implementation' attribute below. When you type the 'argos3 -q'
+          command, the implementation is in the square brackets following
+          the name of the device:
+
+          $ argos3 -q actuators
+          ...
+          footbot_wheels [default]
+          ...
+      -->
+
+      <actuators>
+        <differential_steering implementation="default" />
+      </actuators>
+
+      <!--
+          The <sensors> section contains a list of the sensors used by
+          this controller.
+          If you forget a to mention a sensor here and then request it in
+          the controller, an error occurs.
+          For a list of the possible sensors, type at the command prompt:
+          $ argos3 -q sensors
+      -->
+      <sensors>
+        <kheperaiv_proximity implementation="default" show_rays="true" />
+        <kheperaiv_lidar      implementation="default" show_rays="true" />
+        <differential_steering implementation="default" />
+      </sensors>
+      <!--
+          The <params> section is passed as-is to the controller's Init()
+          function.
+          The user, writing the controller, defines how it is organized.
+          To understand what these parameters are for, check the
+          controller's header file in
+          controllers/footbot_diffusion/footbot_diffusion.h.
+      -->
+      <params alpha="7.5" delta="0.1" velocity="5" />
+    </kheper_diffusion_lidar_controller_2>
+    <kheper_diffusion_lidar_controller_3 id="kdc3"
+                                  library="build/controllers/kheper_diffusion_lidar_3/libkheper_diffusion_lidar_3.so">
+      <!--
+          The <actuators> section contains a list of the actuators used by
+          this controller.
+          If you forget a to mention an actuator here and then request it
+          in the controller, an error occurs.
+          For a list of the possible actuators, type at the command prompt:
+          $ launch_argos -q actuators
+
+          Multiple implementations of an actuator are possible. To
+          identify which one you want to use, pass it in the
+          'implementation' attribute below. When you type the 'argos3 -q'
+          command, the implementation is in the square brackets following
+          the name of the device:
+
+          $ argos3 -q actuators
+          ...
+          footbot_wheels [default]
+          ...
+      -->
+
+      <actuators>
+        <differential_steering implementation="default" />
+      </actuators>
+
+      <!--
+          The <sensors> section contains a list of the sensors used by
+          this controller.
+          If you forget a to mention a sensor here and then request it in
+          the controller, an error occurs.
+          For a list of the possible sensors, type at the command prompt:
+          $ argos3 -q sensors
+      -->
+      <sensors>
+        <kheperaiv_proximity implementation="default" show_rays="true" />
+        <kheperaiv_lidar      implementation="default" show_rays="true" />
+        <differential_steering implementation="default" />
+      </sensors>
+      <!--
+          The <params> section is passed as-is to the controller's Init()
+          function.
+          The user, writing the controller, defines how it is organized.
+          To understand what these parameters are for, check the
+          controller's header file in
+          controllers/footbot_diffusion/footbot_diffusion.h.
+      -->
+      <params alpha="7.5" delta="0.1" velocity="5" />
+    </kheper_diffusion_lidar_controller_3>
 <!--
     <kheperaiv_manual_controller id="khivmc"
                                library="build/controllers/offline_slam/liboffline_slam.so">
@@ -187,7 +286,16 @@
       <orientation method="constant" values="0,0,0" />
       <entity quantity="1" max_trials="100">
           <kheperaiv id="khiv2">
-          <controller config="kdc" />
+          <controller config="kdc2" />
+        </kheperaiv>
+      </entity>
+    </distribute>
+    <distribute>
+      <position method="constant" values="-5,2,0" />
+      <orientation method="constant" values="0,0,0" />
+      <entity quantity="1" max_trials="100">
+          <kheperaiv id="khiv3">
+          <controller config="kdc3" />
         </kheperaiv>
       </entity>
     </distribute>
