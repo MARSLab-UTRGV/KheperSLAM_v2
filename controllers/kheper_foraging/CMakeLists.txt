@@ -1,0 +1,6 @@
+add_library(kheper_foraging SHARED kheper_foraging.h kheper_foraging.cpp)
+target_link_libraries(kheper_foraging
+  argos3core_simulator
+  argos3plugin_simulator_footbot
+  argos3plugin_simulator_kheperaiv
+  argos3plugin_simulator_genericrobot)

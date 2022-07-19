@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dylan/Documents/grad_school/thesis/KheperSlam/controllers/offline_slam/offline_slam.cpp
+offline_slam.h
+/home/dylan/Documents/grad_school/thesis/KheperSlam/controllers/offline_slam/offline_slam.h
+argos3/core/utility/configuration/argos_configuration.h
+-
+argos3/core/utility/logging/argos_log.h
+-
+
+/home/dylan/Documents/grad_school/thesis/KheperSlam/controllers/offline_slam/offline_slam.h
+argos3/core/control_interface/ci_controller.h
+-
+argos3/plugins/robots/generic/control_interface/ci_differential_steering_actuator.h
+-
+argos3/plugins/robots/generic/control_interface/ci_differential_steering_sensor.h
+-
+argos3/plugins/robots/kheperaiv/control_interface/ci_kheperaiv_lidar_sensor.h
+-
+argos3/plugins/robots/generic/control_interface/ci_leds_actuator.h
+-
+argos3/core/utility/math/vector2.h
+-
+fstream
+-
+iostream
+-
+

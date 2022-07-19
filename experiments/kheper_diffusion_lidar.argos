@@ -96,6 +96,7 @@
           controller's header file in
           controllers/footbot_diffusion/footbot_diffusion.h.
       -->
+
       <params alpha="7.5" delta="0.1" velocity="5" />
     </kheper_diffusion_lidar_controller>
 
@@ -119,7 +120,7 @@
 
       $ argos3 -q box
   -->
-  <arena size="3, 3, 1" center="0,0,0.5">
+  <arena size="8, 10, 1" center="0,0,0.5">
 
     <!-- Place four boxes in a square to delimit the arena -->
     <box id="wall_north" size="2,0.1,0.5" movable="false">

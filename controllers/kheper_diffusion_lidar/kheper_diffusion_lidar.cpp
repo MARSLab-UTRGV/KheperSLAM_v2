@@ -12,7 +12,7 @@ CKheperDiffusionLidar::CKheperDiffusionLidar() :
    m_pcWheels(NULL),
   m_pcOdometry(NULL),
   m_pcLidar(NULL),
-  m_cSLAMData("kheper_data.dat", std::ofstream::out | std::ofstream::trunc),
+  m_cSLAMData("kheper_data_1.dat", std::ofstream::out | std::ofstream::trunc),
   m_cTestData("test_data.dat", std::ofstream::out | std::ofstream::trunc),
    m_pcProximity(NULL),
    m_cAlpha(10.0f),
@@ -63,6 +63,7 @@ void CKheperDiffusionLidar::Init(TConfigurationNode& t_node) {
    m_cGoStraightAngleRange.Set(-ToRadians(m_cAlpha), ToRadians(m_cAlpha));
    GetNodeAttributeOrDefault(t_node, "delta", m_fDelta, m_fDelta);
    GetNodeAttributeOrDefault(t_node, "velocity", m_fWheelVelocity, m_fWheelVelocity);
+    //m_sWheelTurningParams.Init(GetNode(t_node, "wheel_turning"));
 }
 
 /****************************************/
@@ -72,8 +73,8 @@ void CKheperDiffusionLidar::ControlStep() {
 
   /* get odom readings */
   const CCI_DifferentialSteeringSensor::SReading& tOdomReads = m_pcOdometry->GetReading();
-  m_leftOdom += tOdomReads.CoveredDistanceLeftWheel*147.4*10.0;
-  m_rightOdom += tOdomReads.CoveredDistanceRightWheel*147.4*10.0;
+  m_leftOdom += tOdomReads.CoveredDistanceLeftWheel;//*147.4*10.0;
+  m_rightOdom += tOdomReads.CoveredDistanceRightWheel;//*147.4*10.0;
 
   std::size_t numLidReads = m_pcLidar->GetNumReadings();
   //const CCI_KheperaIVLIDARSensor::TReadings& tLidarNumReads = m_pcLidar->GetNumReadings();
@@ -93,7 +94,7 @@ void CKheperDiffusionLidar::ControlStep() {
        m_cSLAMData << 0 << " " ;
     }
     for(std::size_t i = 0; i < numLidReads; ++i){
-    m_cSLAMData << i << " " << m_pcLidar->GetReading(i);
+    m_cSLAMData << i << " " << (UInt32)m_pcLidar->GetReading(i)*10;
     }
     m_cSLAMData << "\n";
 /*

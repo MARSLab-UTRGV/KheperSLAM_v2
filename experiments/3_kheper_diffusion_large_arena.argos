@@ -291,7 +291,7 @@
       </entity>
     </distribute>
     <distribute>
-      <position method="constant" values="-5,2,0" />
+      <position method="constant" values="-3,-2,0" />
       <orientation method="constant" values="0,0,0" />
       <entity quantity="1" max_trials="100">
           <kheperaiv id="khiv3">

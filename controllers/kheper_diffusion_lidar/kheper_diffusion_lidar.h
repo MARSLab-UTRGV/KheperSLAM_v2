@@ -27,7 +27,7 @@
 /* Definition of the differential steering actuator */
 #include <argos3/plugins/robots/generic/control_interface/ci_differential_steering_actuator.h>
 /* Definition of the foot-bot proximity sensor */
-#include <argos3/plugins/robots/foot-bot/control_interface/ci_footbot_proximity_sensor.h>
+//#include <argos3/plugins/robots/foot-bot/control_interface/ci_footbot_proximity_sensor.h>
 /* Definitions of the kheper proximity sensor */
 #include <argos3/plugins/robots/kheperaiv/control_interface/ci_kheperaiv_proximity_sensor.h>
 /* Definitions of the kheper lidar sensor */

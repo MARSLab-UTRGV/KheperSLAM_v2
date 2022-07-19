@@ -16,8 +16,8 @@
   <!-- *************** -->
   <controllers>
 
-    <kheper_diffusion_controller id="khivmc"
-                               library="build/controllers/kheper_diffusion/libkheper_diffusion.so">
+    <kheper_diffusion_lidar_controller id="khivmc"
+                               library="build/controllers/kheper_diffusion_lidar/libkheper_diffusion_lidar.so">
       <actuators>
         <differential_steering implementation="default" />
         <leds implementation="default" medium="leds" />
@@ -35,7 +35,7 @@
                        max_speed="10" />
       </params>
 
-    </kheper_diffusion_controller>
+    </kheper_diffusion_lidar_controller>
 
   </controllers>
 

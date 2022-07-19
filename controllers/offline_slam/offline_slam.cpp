@@ -88,8 +88,8 @@ void CKheperaIVManualControl::ControlStep() {
    const CCI_DifferentialSteeringSensor::SReading& tOdomReads = m_pcOdometry->GetReading();
 //   const CCI_KheperaIVLIDARSensor::TReadings& tLidarReads = m_pcLidar->GetReadings();
 
-   leftOdom += tOdomReads.CoveredDistanceLeftWheel*147.4*10.0;
-   rightOdom += tOdomReads.CoveredDistanceRightWheel*147.4*10.0;
+   leftOdom += tOdomReads.CoveredDistanceLeftWheel;//*147.4*10.0;
+   rightOdom += tOdomReads.CoveredDistanceRightWheel;//*147.4*10.0;
 
    m_unTicks++;
 
@@ -117,10 +117,10 @@ void CKheperaIVManualControl::ControlStep() {
              m_cSLAMData << 0 << " " ;
           }
 
-/*
-          for(size_t j = 0; j < tLidarReads.size(); ++j ){
-             m_cSLAMData << (UInt32)(tLidarReads[j]*10) << " " ;
-          }*/
+          std::size_t numLidReads = m_pcLidar->GetNumReadings();
+          for(size_t j = 0; j < numLidReads; ++j ){
+             m_cSLAMData << (UInt32)(m_pcLidar->GetReading(j)*10) << " " ;
+          }
           m_cSLAMData << "\n";
 
      }
