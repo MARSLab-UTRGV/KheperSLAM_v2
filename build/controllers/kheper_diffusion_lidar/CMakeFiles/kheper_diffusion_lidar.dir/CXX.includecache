@@ -13,6 +13,8 @@ argos3/core/utility/configuration/argos_configuration.h
 -
 argos3/core/utility/math/vector2.h
 -
+iostream
+-
 
 /home/dylan/Documents/grad_school/thesis/KheperSlam/controllers/kheper_diffusion_lidar/kheper_diffusion_lidar.h
 argos3/core/control_interface/ci_controller.h

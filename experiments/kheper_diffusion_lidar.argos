@@ -123,22 +123,22 @@
   <arena size="8, 10, 1" center="0,0,0.5">
 
     <!-- Place four boxes in a square to delimit the arena -->
-    <box id="wall_north" size="2,0.1,0.5" movable="false">
+    <box id="wall_north" size="2,.2,0.5" movable="false">
       <body position="0,1,0" orientation="0,0,0" />
     </box>
-    <box id="wall_south" size="2,0.1,0.5" movable="false">
+    <box id="wall_south" size="2,.2,0.5" movable="false">
       <body position="0,-1,0" orientation="0,0,0" />
     </box>
-    <box id="wall_east" size="0.1,2,0.5" movable="false">
+    <box id="wall_east" size=".2,2,0.5" movable="false">
       <body position="1,0,0" orientation="0,0,0" />
     </box>
-    <box id="wall_west" size="0.1,2,0.5" movable="false">
+    <box id="wall_west" size=".2,2,0.5" movable="false">
       <body position="-1,0,0" orientation="0,0,0" />
     </box>
 
     <!-- Place a kheperaiv in the origin and bind it to the controller -->
     <kheperaiv id="khiv_0">
-      <body position="-0.5,-.75,0" orientation="-1,1,0" />
+      <body position="0,0,0" orientation="33,0,0" />
       <controller config="kdc"/>
     </kheperaiv>
 

@@ -4,6 +4,7 @@
 #include <argos3/core/utility/configuration/argos_configuration.h>
 /* 2D vector definition */
 #include <argos3/core/utility/math/vector2.h>
+#include <iostream>
 
 /****************************************/
 /****************************************/
@@ -73,8 +74,8 @@ void CKheperDiffusionLidar::ControlStep() {
 
   /* get odom readings */
   const CCI_DifferentialSteeringSensor::SReading& tOdomReads = m_pcOdometry->GetReading();
-  m_leftOdom += tOdomReads.CoveredDistanceLeftWheel;//*147.4*10.0;
-  m_rightOdom += tOdomReads.CoveredDistanceRightWheel;//*147.4*10.0;
+  m_leftOdom += tOdomReads.CoveredDistanceLeftWheel*147.4*10.0;
+  m_rightOdom += tOdomReads.CoveredDistanceRightWheel*147.4*10.0;
 
   std::size_t numLidReads = m_pcLidar->GetNumReadings();
   //const CCI_KheperaIVLIDARSensor::TReadings& tLidarNumReads = m_pcLidar->GetNumReadings();
@@ -94,7 +95,7 @@ void CKheperDiffusionLidar::ControlStep() {
        m_cSLAMData << 0 << " " ;
     }
     for(std::size_t i = 0; i < numLidReads; ++i){
-    m_cSLAMData << i << " " << (UInt32)m_pcLidar->GetReading(i)*10;
+    m_cSLAMData << i << " " << (UInt32)m_pcLidar->GetReading(i); //*10;
     }
     m_cSLAMData << "\n";
 /*
@@ -138,11 +139,11 @@ void CKheperDiffusionLidar::ControlStep() {
    }
    else {
       /* Turn, depending on the sign of the angle */
-      if(cAngle.GetValue() > 0.0f) {
-         m_pcWheels->SetLinearVelocity(m_fWheelVelocity, 0.0f);
+      if(cAngle.GetValue() > 0) {
+         m_pcWheels->SetLinearVelocity(m_fWheelVelocity, -0.75*m_fWheelVelocity);//0.0f);
       }
       else {
-         m_pcWheels->SetLinearVelocity(0.0f, m_fWheelVelocity);
+         m_pcWheels->SetLinearVelocity(-0.75*m_fWheelVelocity, m_fWheelVelocity);
       }
    }
 }
